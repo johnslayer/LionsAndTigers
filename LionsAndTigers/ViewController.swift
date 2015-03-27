@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var breedLabel: UILabel!
     
+    var myTigers:[Tiger] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,12 +26,34 @@ class ViewController: UIViewController {
         myTiger.age = 3
         myTiger.image = UIImage(named: "BengalTiger.jpg")
         
+        myTigers.append(myTiger)
+        
         println("My tiger's name is: \(myTiger.name), its age is \(myTiger.age), its breed is \(myTiger.breed) and its image is \(myTiger.image)")
         
         myImageView.image = myTiger.image
         nameLabel.text = myTiger.name
         breedLabel.text = myTiger.breed
         ageLabel.text = "\(myTiger.age)"
+        
+        var secondTiger = Tiger()
+        secondTiger.name = "Tigress"
+        secondTiger.breed = "Indochinese Tiger"
+        secondTiger.age = 2
+        secondTiger.image = UIImage(named: "IndochineseTiger.jpg")
+        
+        var thirdTiger = Tiger ()
+        thirdTiger.name = "Jacob"
+        thirdTiger.breed = "Malayan Tiger"
+        thirdTiger.age = 4
+        thirdTiger.image = UIImage(named: "MalayanTiger.jpg")
+        
+        var fourthTiger = Tiger ()
+        fourthTiger.name = "Spar"
+        fourthTiger.breed = "Siberian Tiger"
+        fourthTiger.age = 5
+        fourthTiger.image = UIImage(named: "SiberianTiger.jpg")
+        
+        myTigers += [secondTiger, thirdTiger, fourthTiger]
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,6 +63,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func nextBarButtonItemPressed(sender: UIBarButtonItem) {
+        println(myTigers)
     }
 
 
