@@ -21,11 +21,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
         var myTiger = Tiger()
         myTiger.name = "Tigger"
         myTiger.breed = "Bengal"
         myTiger.age = 3
         myTiger.image = UIImage(named: "BengalTiger.jpg")
+        
+        myTiger.age = myTiger.ageInTigerYearsFromAge(myTiger.age)
+        
+        myTiger.chuff()
+        myTiger.chuffNumberOfTimes(5, isLoud: true)
+        
         
         myTigers.append(myTiger)
         
@@ -42,17 +49,28 @@ class ViewController: UIViewController {
         secondTiger.age = 2
         secondTiger.image = UIImage(named: "IndochineseTiger.jpg")
         
+        secondTiger.age = secondTiger.ageInTigerYearsFromAge(secondTiger.age)
+        
+        
+        secondTiger.chuff()
+        
         var thirdTiger = Tiger ()
         thirdTiger.name = "Jacob"
         thirdTiger.breed = "Malayan Tiger"
         thirdTiger.age = 4
         thirdTiger.image = UIImage(named: "MalayanTiger.jpg")
         
+        thirdTiger.age = thirdTiger.ageInTigerYearsFromAge(thirdTiger.age)
+        
+        
         var fourthTiger = Tiger ()
         fourthTiger.name = "Spar"
         fourthTiger.breed = "Siberian Tiger"
         fourthTiger.age = 5
         fourthTiger.image = UIImage(named: "SiberianTiger.jpg")
+        
+        fourthTiger.age = fourthTiger.ageInTigerYearsFromAge(fourthTiger.age)
+        
         
         myTigers += [secondTiger, thirdTiger, fourthTiger]
     }
@@ -83,6 +101,12 @@ class ViewController: UIViewController {
 //        ageLabel.text = "\(tiger.age)"
 //        breedLabel.text = tiger.breed
         
+        if randomIndex == 3 {
+            ageLabel.textColor = UIColor.redColor()
+            nameLabel.textColor = UIColor.redColor()
+            breedLabel.textColor = UIColor.redColor()
+        }
+        
         UIView.transitionWithView(self.view, duration: 2, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
             
             self.myImageView.image = tiger.image
@@ -93,9 +117,8 @@ class ViewController: UIViewController {
             }, completion: {
             (finished: Bool) -> () in
         })
-        
+     
     }
-
 
 }
 
