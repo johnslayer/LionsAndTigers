@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var breedLabel: UILabel!
+    @IBOutlet weak var randomFactLable: UILabel!
     
     var myTigers:[Tiger] = []
     var currentIndex = 0
@@ -42,6 +43,7 @@ class ViewController: UIViewController {
         nameLabel.text = myTiger.name
         breedLabel.text = myTiger.breed
         ageLabel.text = "\(myTiger.age)"
+        randomFactLable.text = myTiger.randomFact()
         
         var secondTiger = Tiger()
         secondTiger.name = "Tigress"
@@ -105,7 +107,15 @@ class ViewController: UIViewController {
             ageLabel.textColor = UIColor.redColor()
             nameLabel.textColor = UIColor.redColor()
             breedLabel.textColor = UIColor.redColor()
+            randomFactLable.textColor = UIColor.redColor()
         }
+        else {
+            ageLabel.textColor = UIColor.whiteColor()
+            nameLabel.textColor = UIColor.whiteColor()
+            breedLabel.textColor = UIColor.whiteColor()
+            randomFactLable.textColor = UIColor.whiteColor()
+        }
+        
         
         UIView.transitionWithView(self.view, duration: 2, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
             
@@ -113,6 +123,7 @@ class ViewController: UIViewController {
             self.nameLabel.text = tiger.name
             self.ageLabel.text = "\(tiger.age)"
             self.breedLabel.text = tiger.breed
+            self.randomFactLable.text = tiger.randomFact()
             
             }, completion: {
             (finished: Bool) -> () in
