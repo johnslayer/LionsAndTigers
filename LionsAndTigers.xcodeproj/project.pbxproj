@@ -22,6 +22,7 @@
 		C071FCCE1AC4C0A10067D3C9 /* Lioness.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C071FCC61AC4C0A10067D3C9 /* Lioness.jpeg */; };
 		C071FCCF1AC4C0A10067D3C9 /* MalayanTiger.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C071FCC71AC4C0A10067D3C9 /* MalayanTiger.jpg */; };
 		C071FCD01AC4C0A10067D3C9 /* SiberianTiger.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C071FCC81AC4C0A10067D3C9 /* SiberianTiger.jpg */; };
+		C0BB606C1AD0CD3900B7AF13 /* lion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BB606B1AD0CD3900B7AF13 /* lion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		C071FCC61AC4C0A10067D3C9 /* Lioness.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Lioness.jpeg; sourceTree = "<group>"; };
 		C071FCC71AC4C0A10067D3C9 /* MalayanTiger.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MalayanTiger.jpg; sourceTree = "<group>"; };
 		C071FCC81AC4C0A10067D3C9 /* SiberianTiger.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SiberianTiger.jpg; sourceTree = "<group>"; };
+		C0BB606B1AD0CD3900B7AF13 /* lion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			children = (
 				C071FCB41AC4BA6F0067D3C9 /* LionsAndTigersTests.swift */,
 				C071FCB21AC4BA6F0067D3C9 /* Supporting Files */,
+				C0BB606B1AD0CD3900B7AF13 /* lion.swift */,
 			);
 			path = LionsAndTigersTests;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C071FCB51AC4BA6F0067D3C9 /* LionsAndTigersTests.swift in Sources */,
+				C0BB606C1AD0CD3900B7AF13 /* lion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +455,7 @@
 				C071FCBA1AC4BA6F0067D3C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C071FCBB1AC4BA6F0067D3C9 /* Build configuration list for PBXNativeTarget "LionsAndTigersTests" */ = {
 			isa = XCConfigurationList;
@@ -459,6 +464,7 @@
 				C071FCBD1AC4BA6F0067D3C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
