@@ -1,5 +1,5 @@
 //
-//  lion.swift
+//  Lion.swift
 //  LionsAndTigers
 //
 //  Created by Matt Grimes on 4/4/15.
