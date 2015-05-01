@@ -141,6 +141,10 @@ class ViewController: UIViewController {
         case ("Tiger", _):
             let randomIndex = Int(arc4random_uniform(UInt32(lions.count)))
             currentAnimal = ("Lion", randomIndex)
+        
+        case ("Lion", _):
+            let randomIndex = Int(arc4random_uniform(UInt32(lionCubs.count)))
+            currentAnimal = ("LionCub", randomIndex)
             
         default:
             let randomIndex = Int(arc4random_uniform(UInt32(myTigers.count)))
@@ -168,6 +172,15 @@ class ViewController: UIViewController {
                 self.ageLabel.text = "\(lion.age)"
                 self.nameLabel.text = lion.name
                 self.randomFactLable.text = lion.randomFact()
+            }
+            
+            else if self.currentAnimal.species == "LionCub" {
+                let lionCub = self.lionCubs[self.currentAnimal.Index]
+                self.myImageView.image = lionCub.image
+                self.breedLabel.text = lionCub.subSpecies
+                self.ageLabel.text = "\(lionCub.age)"
+                self.nameLabel.text = lionCub.name
+                self.randomFactLable.text = lionCub.randomFact()
             }
             
             self.randomFactLable.hidden = false
