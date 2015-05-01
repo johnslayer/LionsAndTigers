@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     
     var myTigers:[Tiger] = []
     var lions:[Lion] = []
+    var lionCubs:[LionCub] = []
     
     var currentIndex = 0
     var currentAnimal = (species: "Tiger", Index: 0)
@@ -105,10 +106,21 @@ class ViewController: UIViewController {
         var lionCub = LionCub()
         lionCub.age = 1
         lionCub.name = "Simba"
+        lionCub.isAlphaMale = true
         lionCub.image = UIImage(named: "LionCub1.jpg")
         lionCub.subSpecies = "Masai"
         
         lionCub.roar()
+        lionCub.rubLionCubsBelly()
+        
+        var femaleLionCub = LionCub()
+        femaleLionCub.age = 1
+        femaleLionCub.name = "Nala"
+        femaleLionCub.image = UIImage(named: "LionCub2.jpeg")
+        femaleLionCub.subSpecies = "Transvaal"
+        femaleLionCub.isAlphaMale = false
+        
+        self.lionCubs += [lionCub, femaleLionCub]
 
     }
 
