@@ -15,4 +15,26 @@ class Lion {
     var image = UIImage(named:"")
     var name = ""
     var subSpecies = ""
+    
+    func roar() {
+        println("Lion: roar roar")
+    }
+    
+    func changeToAlphaMale() {
+        self.isAlphaMale = true
+    }
+    
+    func randomFact() -> String {
+        var randomFact:String
+        
+        if self.isAlphaMale {
+            randomFact = "Male lions are easy to recognize thanks to their distinctive manes"
+        }
+        else  {
+            randomFact = "Female lionesses form the stable social unit and do not tolerate outside females"
+        }
+        
+        return randomFact
+    }
 }
+

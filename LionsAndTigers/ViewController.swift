@@ -18,7 +18,10 @@ class ViewController: UIViewController {
     
     var myTigers:[Tiger] = []
     var lions:[Lion] = []
+    
     var currentIndex = 0
+    var currentAnimal = (species: "Tiger", Index: 0)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,7 +94,21 @@ class ViewController: UIViewController {
         lioness.name = "Sarabi"
         lioness.subSpecies = "Barbary"
         
+        lion.roar()
+        lioness.roar()
+        lion.changeToAlphaMale()
+        println(lion.isAlphaMale)
+        
+        
         self.lions += [lion, lioness]
+        
+        var lionCub = LionCub()
+        lionCub.age = 1
+        lionCub.name = "Simba"
+        lionCub.image = UIImage(named: "LionCub1.jpg")
+        lionCub.subSpecies = "Masai"
+        
+        lionCub.roar()
 
     }
 
@@ -102,52 +119,51 @@ class ViewController: UIViewController {
     
     
     @IBAction func nextBarButtonItemPressed(sender: UIBarButtonItem) {
+        updateAnimal()
+        updateView()
         
-        var randomIndex:Int
-        
-        do {
-        randomIndex = Int(arc4random_uniform(UInt32(myTigers.count)))
+    }
 
-        } while currentIndex == randomIndex
-        
-        currentIndex = randomIndex
-        
-        
-        let tiger = myTigers[randomIndex]
-        
-        
-//        myImageView.image = tiger.image
-//        nameLabel.text = tiger.name
-//        ageLabel.text = "\(tiger.age)"
-//        breedLabel.text = tiger.breed
-        
-        if randomIndex == 3 {
-            ageLabel.textColor = UIColor.redColor()
-            nameLabel.textColor = UIColor.redColor()
-            breedLabel.textColor = UIColor.redColor()
-            randomFactLable.textColor = UIColor.redColor()
+    func updateAnimal() {
+        switch currentAnimal {
+        case ("Tiger", _):
+            let randomIndex = Int(arc4random_uniform(UInt32(lions.count)))
+            currentAnimal = ("Lion", randomIndex)
+            
+        default:
+            let randomIndex = Int(arc4random_uniform(UInt32(myTigers.count)))
+            currentAnimal = ("Tiger", randomIndex)
         }
-        else {
-            ageLabel.textColor = UIColor.whiteColor()
-            nameLabel.textColor = UIColor.whiteColor()
-            breedLabel.textColor = UIColor.whiteColor()
-            randomFactLable.textColor = UIColor.whiteColor()
-        }
-        
+    }
+    
+    func updateView() {
         
         UIView.transitionWithView(self.view, duration: 2, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
             
-            self.myImageView.image = tiger.image
-            self.nameLabel.text = tiger.name
-            self.ageLabel.text = "\(tiger.age)"
-            self.breedLabel.text = tiger.breed
-            self.randomFactLable.text = tiger.randomFact()
+            if self.currentAnimal.species == "Tiger" {
+                let tiger = self.myTigers[self.currentAnimal.Index]
+                self.myImageView.image = tiger.image
+                self.breedLabel.text = tiger.breed
+                self.ageLabel.text = "\(tiger.age)"
+                self.nameLabel.text = tiger.name
+                self.randomFactLable.text = tiger.randomFact()
+            }
+            
+            else if self.currentAnimal.species == "Lion" {
+                let lion = self.lions[self.currentAnimal.Index]
+                self.myImageView.image = lion.image
+                self.breedLabel.text = lion.subSpecies
+                self.ageLabel.text = "\(lion.age)"
+                self.nameLabel.text = lion.name
+                self.randomFactLable.text = lion.randomFact()
+            }
+            
+            self.randomFactLable.hidden = false
             
             }, completion: {
-            (finished: Bool) -> () in
+                (finished: Bool) -> () in
         })
-     
+    
     }
-
 }
 
